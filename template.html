@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Departure Forecast Report</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- כפתור ניווט לדף נוסף -->
+<div class="nav-container">
+    <a href="attrition_analysis.html" class="nav-button">Attrition Factors Analysis</a>
+    <a href="analysis.html" class="nav-button">Data analysis</a>
+</div>
+<h1>Employee Departure Forecast Report</h1>
+
+<!-- חלון קופץ -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <div id="popup-text"></div>
+  </div>
+</div>
+
+<h2>Distribution of risk levels</h2>
+{{ risk_pie_chart }}
+
+<h2>Table of employees at risk of leaving</h2>
+<!-- כפתור להורדת קובץ Excel -->
+<a href="high_risk_table.xlsx" download style="display: inline-block; margin-bottom: 20px;
+   background-color: #4CAF50; color: white; padding: 10px 20px;
+   text-decoration: none; border-radius: 5px;">
+   Download Table as Excel
+</a>
+
+<div class="search-bar">
+    <label for="searchBox">Search by EmpID:</label>
+    <input type="text" id="searchBox" onkeyup="filterTable()" placeholder="Enter ID number">
+</div>
+
+{{ styled_table }}
+
+<!-- סקריפט חלון קופץ -->
+<script>
+  const employeeDetails = {{ employee_data_json }};
+  function showDetails(empID) {
+    document.getElementById("popup-text").innerHTML = employeeDetails[empID];
+    document.getElementById("popup").style.display = "block";
+  }
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+<script>
+function filterTable() {
+    const input = document.getElementById("searchBox");
+    const filter = input.value.trim();
+    const table = document.querySelector("table");
+    const rows = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < rows.length; i++) { // דילוג על שורת הכותרות
+        const cell = rows[i].getElementsByTagName("td")[4]; // עמודת EmpID היא ה-5 מימין (אינדקס 4)
+        if (cell) {
+            const textValue = cell.textContent || cell.innerText;
+            rows[i].style.display = textValue.includes(filter) || filter === "" ? "" : "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

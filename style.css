@@ -1,0 +1,323 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 40px;
+    background: linear-gradient(135deg, #f7f7f7, #dfe9f3); /* מעבר עדין */
+    background-size: 400px 400px;
+
+}
+
+table {
+    direction: rtl;
+    text-align: right;
+} 
+#graphSelector,
+#graphSelector option {
+    text-align: left;
+    direction: ltr;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    direction: ltr;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.search-bar label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+}
+
+.search-bar input {
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #444;
+    margin-top: 40px;
+    text-align: left;
+}
+
+/* טבלת סיכון */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+/* כפתור ניווט */
+.top-button {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background-color: #005f73;
+}
+
+/* חלון קופץ */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    direction: ltr;
+    text-align: left;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+#graphSelector {
+    direction: rtl;
+}
+
+.header-controls h1 {
+    margin: 0;
+    font-size: 28px;
+    flex: 1;
+}
+
+.header-controls select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+}
+
+/* קונטיינר של התפריט הנפתח (בחר גרף) */
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 20px 0;
+    direction: ltr;
+    text-align: left;
+    gap: 12px;
+}
+
+/* סגנון לתיבת בחירה */
+.dropdown-container select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+/* קונטיינר שמכיל את הגרף */
+.graph-container {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* =============================== */
+/* ✨ תוספת לסרגל עליון מודרני ✨  */
+/* =============================== */
+
+.main-header {
+    background-image: url('https://www.transparenttextures.com/patterns/paper-2.png');
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-link {
+    background-color: #009f46;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #007c35;
+}
+
+/* כפתור פעיל */
+.nav-link.active {
+    background-color: #fdd835;
+    color: #2c3e50;
+}
+
+
+.info-button {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.info-button:hover {
+    background-color: #023e8a;
+}
+
+/* פופ-אפ */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 8% auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    width: 60%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.info-icon:hover {
+    background-color: #023e8a;
+}
+.info-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+.iframe-wrapper {
+    position: relative;
+    width: 90%;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: white;
+}
+
+.iframe-wrapper iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- כפתור חזרה לדף הקודם -->
+    <div class="top-button">
+        <a href="final_risk_report.html" class="nav-button">Back to Report</a>
+    </div>
+
+    <!-- כותרת -->
+    <h1>Employee Risk Graphs</h1>
+
+    <!-- תפריט נפתח לבחירת גרף -->
+    <div class="dropdown-container">
+        <label for="graphSelector"><strong>Select a graph:</strong></label>
+        <select id="graphSelector" onchange="loadGraph()">
+            <option value="">-- Choose --</option>
+            <option value="risk_by_rating.html">Risk by Current Rating</option>
+            <option value="risk_by_dept_and_level.html">Risk by department</option>
+            <option value="risk_by_performance_score.html">Risk by performance score</option>
+            <option value="risk_by_marital.html">Risk by marital</option>
+            <option value="risk_by_gendercode.html">Risk by gender</option>
+            <option value="risk_by_division.html">Risk by division</option>
+            <option value="tenure_risk_chart.html">Risk by tenure</option>
+            <option value="risk_by_age_range.html">Risk by age</option>
+          
+        </select>
+    </div>
+
+    <!-- אזור להצגת הגרף -->
+    <div id="graphContainer" class="graph-container" style="text-align: left; padding: 10px; color: #444;">
+        <p>Please select a graph from the list above</p>
+    </div>
+
+
+    <script>
+        function loadGraph() {
+            const graph = document.getElementById("graphSelector").value;
+            const container = document.getElementById("graphContainer");
+
+            if (graph) {
+                container.innerHTML = `<iframe src="${graph}" width="100%" height="600px" frameborder="0"></iframe>`;
+            } else {
+                container.innerHTML = `<p>Please select a graph from the list above</p>`;
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

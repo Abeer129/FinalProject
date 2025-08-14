@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attrition Factors Analysis</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        nav {
+            background-color: #0077b6;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 12px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 10px;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);  /* רקע שקוף בהיר */
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #005f8c; /* רקע כהה יותר ב־hover */
+        }
+
+        section {
+            padding: 60px 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .top-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+       
+        .nav-button {
+            background-color: #006699;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+       
+        .nav-button:hover {
+            background-color: #004466;
+        }
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+       
+        .iframe-container iframe {
+            width: 90%;
+            max-width: 1200px;
+            height: 600px;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#correlation">Correlation</a>
+    <a href="#chi">Chi-Square</a>
+    <a href="#anova1">DepartmentType vs Age</a>
+    <a href="#anova2">Tenure vs Performance</a>
+    <a href="#anova3">Age vs Performance</a>
+    <a href="#anova4">Tenure vs EmployeeType</a>
+    <a href="#anova5">Tenure vs JobFunction</a>
+    <a href="#anova6">Tenure vs PayZone</a>
+
+</nav>
+
+    <div class="top-button">
+        <a href="final_risk_report.html" class="nav-button">Back to Report</a>
+    </div>
+
+
+<section id="correlation" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="correlation_heatmap.html"></iframe>
+
+        <!-- אייקון הסבר בתוך המסגרת -->
+        <button class="info-icon" onclick="openExplanation('correlation')">ⓘ</button>
+    </div>
+
+    <!-- חלון פופאפ -->
+    <div id="correlation-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('correlation')">&times;</span>
+            <h3>What is a Correlation Heatmap?</h3>
+            <p>This heatmap shows the strength of correlation between numeric variables in the dataset, including Age, Tenure, Current Employee Rating.. and Is_Exited (attrition). Values range from −1 (strong negative correlation) to 1 (strong positive). Darker shades indicate stronger relationships. For example, there is a strong negative correlation between Tenure and Attrition (−0.73), suggesting that employees with lower tenure are more likely to leave. Other variables show very weak or negligible correlation with attrition, indicating limited predictive relevance.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="chi" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="chi_square_heatmap.html"></iframe>
+
+        <!-- כפתור אייקון הסבר -->
+        <button class="info-icon" onclick="openExplanation('chi')">ⓘ</button>
+    </div>
+
+    <!-- חלון פופאפ -->
+    <div id="chi-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('chi')">&times;</span>
+            <h3>What is a Chi-Square Heatmap?</h3>
+            <p>The chart presents a Chi-Square test that examines whether there is a statistical dependency between categorical variables and employee attrition. Each row represents a feature, with the color indicating the strength of the association (Chi² value), and the p-value showing the statistical significance. The darker the color and the smaller the p-value (below 0.05), the more significant the relationship. The chart reveals that only the "DepartmentType" variable shows a significant association with attrition (p = 0.032), suggesting that the department type may influence employee turnover.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="anova1" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="anova_test_plot.html"></iframe>
+
+        <!-- כפתור אייקון הסבר -->
+        <button class="info-icon" onclick="openExplanation('anova1')">ⓘ</button>
+    </div>
+
+    <!-- חלון פופאפ -->
+    <div id="anova1-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('anova1')">&times;</span>
+            <h3>What is an ANOVA Test?</h3>
+            <p>The graph presents the distribution of employee age by department type using a Box Plot, combined with an ANOVA test to examine whether there is a statistically significant difference in average age between departments. Each box represents the central age range within a department: the middle line shows the median age, the box edges represent the 25th and 75th percentiles (quartiles), and the "whiskers" indicate the youngest and oldest ages. Additional values on the sides (such as min, max, Q1, and Q3) help understand the spread of the data. The ANOVA test result at the top of the graph (F=0.26, p=0.93291) indicates that there is no significant difference in age between the departments (since the p-value is greater than 0.05), suggesting that age is likely not dependent on department.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="anova2" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="anova_tenure_vs_performance.html"></iframe>
+
+        <!-- אייקון הסבר -->
+        <button class="info-icon" onclick="openExplanation('anova2')">ⓘ</button>
+    </div>
+
+    <!-- פופאפ הסבר -->
+    <div id="anova2-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('anova2')">&times;</span>
+            <h3>ANOVA: Tenure vs Performance</h3>
+            <p>The chart illustrates the relationship between employees' Performance Score and their Tenure using a Box Plot combined with an ANOVA test. Each box represents a group of employees based on their performance level ("Exceeds", "Fully Meets", "Needs Improvement", "PIP") and shows how tenure is distributed within each group. The middle line of the box indicates the median (the middle value), the box edges represent the first (Q1) and third (Q3) quartiles, and the whiskers show the minimum and maximum tenure values. Additional statistical values like mean, standard deviation, and other key figures are also annotated on the plot.
+The ANOVA test result, shown in the chart title (F=0.78, p=0.50496), evaluates whether there is a statistically significant difference in average tenure among the performance groups. Since the p-value is greater than 0.05, there is no statistical evidence to suggest a meaningful relationship between performance level and tenure in this dataset.
+To interpret whether there's a relationship between the variables, one should observe the shape and spread of the boxes: if there were noticeable differences in the medians or ranges (Q1–Q3) across the performance levels, and the p-value was less than 0.05, it would indicate a significant link between performance and tenure. However, in this case, the distributions are relatively similar, indicating no significant correlation between these two factors.
+</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="anova3" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="anova_age_vs_performance.html"></iframe>
+
+        <!-- אייקון הסבר -->
+        <button class="info-icon" onclick="openExplanation('anova3')">ⓘ</button>
+    </div>
+
+    <!-- חלון הסבר קופץ -->
+    <div id="anova3-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('anova3')">&times;</span>
+            <h3>ANOVA: Age vs Performance</h3>
+            <p>This chart illustrates the relationship between employees' Performance Score and their Age using a Box Plot combined with an ANOVA test. Each box represents a group of employees categorized by performance level and shows the distribution of ages within that group. The middle line indicates the median, the box edges represent the first (Q1) and third (Q3) quartiles, and the whiskers show the minimum and maximum ages. The mean and standard deviation are also displayed for context.
+The ANOVA result in the title (F=1.11, p=0.34356) tests whether there is a statistically significant difference in average age between the performance groups. Since the p-value is greater than 0.05, there is no evidence of a significant relationship between performance level and age.
+if the boxes had clearly different medians or ranges (Q1–Q3), and the p-value was below 0.05, that would indicate a significant link. However, the similar spread across performance groups suggests that age is not significantly associated with performance.
+</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="anova4" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="anova_tenure_vs_employee_type.html"></iframe>
+
+        <!-- כפתור הסבר -->
+        <button class="info-icon" onclick="openExplanation('anova4')">ⓘ</button>
+    </div>
+
+    <!-- חלון הסבר קופץ -->
+    <div id="anova4-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('anova4')">&times;</span>
+            <h3>ANOVA: Tenure vs Employee Type</h3>
+            <p>This chart illustrates the relationship between Employee Type and Tenure using a Box Plot and ANOVA test. Each box represents the tenure distribution within each employment type. The middle line shows the median, the box edges represent the first (Q1) and third (Q3) quartiles, and the whiskers indicate the minimum and maximum tenure values. The mean and standard deviation are also provided.
+The ANOVA result shown in the title (F=0.57, p=0.56317) tests whether there is a significant difference in average tenure between the employee types. Since the p-value is greater than 0.05, there is no statistically significant relationship between employee type and tenure. This means employment type does not appear to impact how long employees stay in the organization.
+If the boxes showed clear differences in medians or ranges between the groups – for example, significantly higher tenure for full-time employees – and the p-value was below 0.05, we could conclude a significant relationship. However, the similar distributions across types suggest that tenure is not significantly influenced by employment type.
+</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="anova5" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="anova_tenure_vs_jobfunction.html"></iframe>
+
+        <!-- כפתור הסבר -->
+        <button class="info-icon" onclick="openExplanation('anova5')">ⓘ</button>
+    </div>
+
+    <!-- חלון הסבר קופץ -->
+    <div id="anova5-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('anova5')">&times;</span>
+            <h3>ANOVA: Tenure vs Job Function</h3>
+            <p>The chart illustrates the relationship between employees' job function descriptions and their tenure using box plots for each role, alongside the result of an ANOVA test. Each box represents the distribution of tenure for employees with a specific job function: the middle line shows the median, the box edges mark the first (Q1) and third (Q3) quartiles, and the whiskers indicate the minimum and maximum values. Additionally, the mean and standard deviation are displayed to help compare central tendencies across roles.
+To assess whether there are statistically significant differences in tenure among the different job functions, an ANOVA test was conducted. The result is shown in the title: F=0.77, p=0.93504. Since the p-value is much greater than 0.05, this indicates there is no statistically significant difference in average tenure across job function groups. In other words, tenure is not dependent on job function.
+Despite the wide variety of job titles, the tenure distribution is relatively similar across groups, so we cannot conclude that a specific role necessarily leads to longer or shorter tenure.
+</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section id="anova6" class="graph-section">
+    <div class="iframe-wrapper">
+        <iframe src="anova_tenure_vs_payzone.html"></iframe>
+
+        <!-- כפתור הסבר -->
+        <button class="info-icon" onclick="openExplanation('anova6')">ⓘ</button>
+    </div>
+
+    <!-- חלון הסבר קופץ -->
+    <div id="anova6-explanation" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeExplanation('anova6')">&times;</span>
+            <h3>ANOVA: Tenure vs Pay Zone</h3>
+            <p>The chart shows the relationship between PayZone and employee Tenure using box plots and an ANOVA test. Each box represents the tenure distribution for a specific pay zone (Zone A, B, C). The middle line of each box indicates the median, the box edges mark the first and third quartiles (Q1 and Q3), and the whiskers show the minimum and maximum values. The mean and standard deviation are also displayed.
+The ANOVA test result (F=0.36, p=0.69677) examines whether there are significant differences in average tenure across pay zones. Since the p-value is greater than 0.05, the result suggests there is no statistically significant difference in tenure among the pay zones. In other words, employees across all zones tend to stay with the organization for a similar duration.
+</p>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+  function openExplanation(id) {
+    document.getElementById(id + "-explanation").style.display = "block";
+  }
+
+  function closeExplanation(id) {
+    document.getElementById(id + "-explanation").style.display = "none";
+  }
+</script>
+
+
+</body>
+</html>

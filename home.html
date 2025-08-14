@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Attrition Dashboard</title>
+
+  <style>
+    body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+}
+
+body::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("w.webp");
+          background-size: cover;
+          background-position: center;
+          opacity: 0.3; /* דרגת שקיפות */
+          z-index: -1;
+}
+
+
+    .welcome-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .welcome-box h1 {
+      font-size: 28px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .welcome-box h1 span {
+      color: #0078d4;
+    }
+
+    .welcome-box p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .start-button {
+      display: inline-block;
+      background-color: #0078d4;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .start-button:hover {
+      background-color: #005a9e;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-box">
+    <h1>Welcome to the <span>Employee Attrition Dashboard</span></h1>
+    <p>
+      This dashboard is designed for HR managers to analyze employee attrition, 
+      identify risk levels, and support data-driven decisions to improve retention
+    </p>
+    <a href="final_risk_report.html" class="start-button">Go To Dashboard</a>
+
+    <footer>
+      &copy; 2025 All Rights Reserved | Final Project
+    </footer>
+  </div>
+
+</body>
+</html>
